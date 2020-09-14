@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -eu
+
+./setup
+
+"$(npm bin)/tsc"
+NODE_ENV=production "$(npm bin)/mocha" target/tests.js

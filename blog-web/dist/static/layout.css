@@ -1,0 +1,168 @@
+/*
+    # レイアウト
+
+    すべてのページに影響するレイアウト設定や、
+    複数のページで使用する基本的なレイアウト要素の定義
+*/
+
+:root {
+    --overlay-z-index: 10;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    height: 100%;
+}
+
+html {
+    /* 1rem = 10px */
+    font-size: 62.5%;
+}
+
+/* スマートフォン用 */
+@media (max-width: 320px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: sans-serif;
+}
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+dl {
+    margin-top: 0;
+}
+
+
+
+/*
+    style:FlexRow
+
+    要素を水平方向に並べる。
+*/
+
+/*
+    style:FlexColumn
+
+    要素を垂直方向に並べる。
+*/
+
+.g-flex-row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.g-flex-column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+/* 要素間の間隔をあける。 */
+.g-flex-row > * + * {
+    margin-left: 0.8rem;
+}
+
+.g-flex-column > * + * {
+    margin-top: 0.8rem;
+}
+
+/* この要素を拡張してフレックスボックスの余白を埋める。 */
+.g-flex-row > .flex-stretch,
+.g-flex-column > .flex-stretch {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/* この要素をフレックスボックスの交差軸方向に中央寄せする。(横向きのフレックスボックスなら縦に中央寄せ。) */
+.g-flex-row > .flex-cross-center,
+.g-flex-column > .flex-cross-center {
+    align-self: center;
+}
+
+
+
+/*
+    style:Cluster
+
+    要素を中央寄せする。
+*/
+
+.g-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*
+    style:Cluster
+
+    要素を水平に並べて、適当なところで改行する。
+*/
+
+.g-cluster {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    margin-bottom: -0.8rem;
+}
+
+.g-cluster > * {
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+
+
+/*
+    style:VerticalScroll
+
+    サイズが大きければ垂直方向にスクロールバーを出す。
+    コンテンツには何らかの高さ制限をかけておく必要がある。そうしないとスクロールバーは出ず、単にはみ出る。
+*/
+
+.g-vertical-scroll {
+    overflow-y: auto;
+    flex: 1 0 4rem;
+}
+
+
+
+/*
+    style:MainLayout
+*/
+
+#g-main-layout > header,
+#g-main-layout > article,
+#g-main-layout > footer {
+    padding: 0.8rem 1.6rem;
+}

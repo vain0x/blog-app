@@ -1,0 +1,6 @@
+#!/bin/sh
+# 本番モードでサーバーを起動する。
+
+set -eu
+
+NODE_ENV=production node target/server.js

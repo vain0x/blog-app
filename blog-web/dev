@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -eu
+
+./setup
+
+if test ! -f target/server.js
+then
+    echo 'dev: 初回起動なので、コンパイルを待機します。'
+    NODE_ENV=development "$(npm bin)/tsc"
+fi
+
+NODE_ENV=development "$(npm bin)/tsc" --watch &
+NODE_ENV=development "$(npm bin)/webpack" --mode development --watch &
+NODE_ENV=development "$(npm bin)/mocha" target/tests.js --reporter dot --watch &
+node scripts/serve.js &
+
+wait

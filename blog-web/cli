@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -eu
+
+./setup
+
+NODE_ENV=development "$(npm bin)/tsc" -b
+node target/cli.js "$@"

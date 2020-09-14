@@ -1,0 +1,12 @@
+#!/bin/sh
+# 本番モードでビルドする。
+
+set -eu
+
+./setup
+
+# TypeScript → JavaScript のコンパイル
+NODE_ENV=production "$(npm bin)/tsc"
+
+# クライアントコードのバンドル
+NODE_ENV=production "$(npm bin)/webpack" --mode production

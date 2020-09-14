@@ -1,0 +1,24 @@
+body {
+    color: var(--text-color-dark);
+}
+
+
+
+.g-anchor-silent,
+.g-anchor-silent:active,
+.g-anchor-silent:focus,
+.g-anchor-silent:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+#g-main-layout > header {
+    background: #212121;
+    color: #fafafa;
+}
+
+#g-main-layout > footer {
+    background: #e9e9e9;
+}
